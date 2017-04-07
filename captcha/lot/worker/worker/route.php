@@ -21,7 +21,7 @@ Route::set('captcha.png', function() {
         'Pragma' => 'no-cache'
     ]);
     $id = Request::get('id');
-    extract(json_decode(Captcha::get($id . '_'), true));
+    extract(To::anemon(Captcha::get($id . '_')));
     $text = Captcha::get($id);
     $image = imagecreatetruecolor($w, $h);
     $b = fn_captcha_text_color($b) ?: [255, 255, 255, 0];

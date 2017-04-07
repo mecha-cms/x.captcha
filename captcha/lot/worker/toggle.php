@@ -7,4 +7,4 @@ $hash = Guardian::hash($id);
 
 Captcha::set($id, $hash);
 
-return Form::input('captcha', 'checkbox', $hash, null, ['classes' => ['captcha', 'captcha-toggle'], 'id' => 'captcha:' . $id]) . ' ' . HTML::label($text, ['for' => 'captcha:' . $id]);
+return Form::input('captcha', 'checkbox', $hash, null, ['classes' => ['captcha', 'captcha-toggle'], 'id' => 'captcha:' . $id]) . ($text ? ' ' . HTML::label($text, ['for' => 'captcha:' . $id]) : "");
