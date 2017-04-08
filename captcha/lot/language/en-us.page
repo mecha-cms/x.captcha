@@ -10,4 +10,5 @@ captcha_toggle: I am not a robot.
 message_error_captcha: Invalid captcha.
 message_error_captcha_math: Wrong math answer.
 message_error_captcha_text: Wrong captcha answer.
+message_error_captcha_token: Invalid token.
 message_error_captcha_toggle: You are a robot.

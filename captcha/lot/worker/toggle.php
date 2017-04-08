@@ -3,7 +3,7 @@
 // `Captcha::toggle($id = null, $text = 'I am not a robot.')`
 list($id, $text) = array_replace([null, $language->captcha_toggle, false], $lot);
 
-$hash = Guardian::hash($id);
+$hash = uniqid();
 
 Captcha::set($id, $hash);
 
