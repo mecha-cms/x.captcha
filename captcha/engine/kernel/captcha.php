@@ -31,7 +31,7 @@ class Captcha extends Genome {
             extract(Lot::get(null, []));
             return require $type;
         }
-        return null;
+        return !defined('DEBUG') || !DEBUG ? null : parent::__callStatic($kin, $lot);
     }
 
 }
