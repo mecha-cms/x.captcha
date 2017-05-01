@@ -45,4 +45,4 @@ Route::set('captcha.png', function() {
     imagepng($image);
     imagedestroy($image);
     exit;
-});
+}, 1);

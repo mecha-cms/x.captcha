@@ -3,7 +3,7 @@ title: Captcha
 description: Form protection using captcha.
 author: Taufik Nurrohman
 type: Markdown
-version: 1.1.0
+version: 1.1.1
 ...
 
 ### Usage
@@ -197,7 +197,7 @@ As copy and paste captcha:
 As toggle captcha:
 
 ~~~ .php
-<?php echo Form::checkbox('captcha', Captcha::token(), false, 'I am not a robot.'); ?>
+<?php echo Form::checkbox('captcha', Captcha::token('foo', null, false), false, 'I am not a robot.'); ?>
 ~~~
 
 <!-- block:donate -->
