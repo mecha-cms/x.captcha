@@ -18,7 +18,10 @@ Captcha::set($id . '_', json_encode([
     'f' => $font
 ]));
 
-return HTML::img($url . '/captcha.png' . HTTP::query(['id' => $id]), $id, [
+return HTML::img($url . '/captcha.png' . HTTP::query([
+    'id' => $id,
+    'v' => time() // disable cache
+]), $id, [
     'classes' => ['captcha', 'captcha-text'],
     'id' => 'captcha:' . $id,
     'width' => $width,
