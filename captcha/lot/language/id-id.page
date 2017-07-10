@@ -1,0 +1,14 @@
+---
+type: YAML
+...
+
+captcha: Tantangan
+captchas: Tantangan
+
+captcha_toggle: Saya bukan robot.
+
+message_error_captcha: Tantangan tidak valid.
+message_error_captcha_math: Jawaban matematika salah.
+message_error_captcha_text: Jawaban tantangan salah.
+message_error_captcha_token: Token tidak valid.
+message_error_captcha_toggle: Anda adalah robot.
