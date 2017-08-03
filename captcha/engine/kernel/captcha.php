@@ -4,7 +4,7 @@ class Captcha extends Genome {
 
     public static $config = [
         'session' => [
-            'captcha' => 'Mecha.Captcha'
+            'captcha' => 'mecha.captcha'
         ]
     ];
 
@@ -26,8 +26,8 @@ class Captcha extends Genome {
         return self::get($id) === $input ? $input : $fail;
     }
 
-    public static function __callStatic($kin, $lot) {
-        if ($type = File::exist(Path::D(__DIR__, 2) . DS . 'lot' . DS . 'worker' . DS . $kin . '.php')) {
+    public static function __callStatic($kin, $lot = []) {
+        if ($type = File::exist(__DIR__ . DS . '..' . DS . '..' . DS . 'lot' . DS . 'worker' . DS . $kin . '.php')) {
             extract(Lot::get(null, []));
             return require $type;
         }
