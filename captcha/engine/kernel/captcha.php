@@ -9,16 +9,19 @@ class Captcha extends Genome {
     ];
 
     public static function set($id, $value = null) {
-        Session::set(self::$config['session']['captcha'] . '.' . $id, $id . ':' . $value);
+        Cookie::set(self::$config['session']['captcha'] . '.' . $id, $id . ':' . $value, [
+            'expire' => 1 / 2.4, // 1 day ÷ 2.4 = 10 minute(s)
+            'http_only' => true // will not be available in `document.cookie`
+        ]);
         return true;
     }
 
     public static function get($id, $fail = null) {
-        return e(substr(Session::get(self::$config['session']['captcha'] . '.' . $id, $fail), strlen($id) + 1));
+        return e(substr(Cookie::get(self::$config['session']['captcha'] . '.' . $id, $fail), strlen($id) + 1));
     }
 
     public static function reset($id = null) {
-        Session::reset(self::$config['session']['captcha'] . ($id ? '.' . $id : ""));
+        Cookie::reset(self::$config['session']['captcha'] . ($id ? '.' . $id : ""));
         return true;
     }
 
