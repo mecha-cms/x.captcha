@@ -2,11 +2,13 @@
 
 class Captcha extends Genome {
 
-    public static $config = [
+    const config = [
         'session' => [
             'captcha' => 'mecha.captcha'
         ]
     ];
+
+    public static $config = self::config;
 
     public static function set($id, $value = null) {
         Cookie::set(self::$config['session']['captcha'] . '.' . $id, $id . ':' . $value, [
