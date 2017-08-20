@@ -3,7 +3,7 @@ title: Captcha
 description: Form protection using captcha.
 author: Taufik Nurrohman
 type: Markdown
-version: 1.2.1
+version: 1.3.0
 dependency: {"extension":["asset"]}
 ...
 
@@ -22,11 +22,11 @@ dependency: {"extension":["asset"]}
 #### Output
 
 ~~~ .php.xmp
-Captcha::check($id, $input, $fail = false);
+Captcha::check($input, $id, $fail = false);
 ~~~
 
 ~~~ .php
-if (Captcha::check('foo', Request::post('captcha')) !== false) {
+if (Captcha::check(Request::post('captcha'), 'foo') !== false) {
     // Passed the test!
 }
 ~~~
