@@ -11,4 +11,4 @@ if ($hash === null) {
 
 Captcha::set($id, $hash);
 
-return $html ? HTML::span($hash, ['classes' => ['captcha', 'captcha-token'], 'id' => 'captcha:' . $id, 'contenteditable' => true]) : $hash;
+return $html ? HTML::span($hash, ['class[]' => ['captcha', 'captcha-token'], 'id' => 'captcha:' . $id, 'contenteditable' => true]) : $hash;

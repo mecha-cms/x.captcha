@@ -20,6 +20,6 @@ return HTML::span(__replace__($format, [
     'b' => $b_text,
     '?' => $o
 ]), [
-    'classes' => ['captcha', 'captcha-math'],
+    'class[]' => ['captcha', 'captcha-math'],
     'id' => 'captcha:' . $id
 ]);

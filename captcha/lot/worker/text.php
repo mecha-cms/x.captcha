@@ -22,7 +22,7 @@ return HTML::img($url . '/captcha.png' . HTTP::query([
     'id' => $id,
     'v' => time() // disable cache
 ]), $id, [
-    'classes' => ['captcha', 'captcha-text'],
+    'class[]' => ['captcha', 'captcha-text'],
     'id' => 'captcha:' . $id,
     'width' => $width,
     'height' => $height

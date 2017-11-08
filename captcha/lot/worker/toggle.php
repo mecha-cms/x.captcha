@@ -7,4 +7,4 @@ $hash = uniqid();
 
 Captcha::set($id, $hash);
 
-return Form::input('captcha', 'checkbox', $hash, null, ['classes' => ['captcha', 'captcha-toggle'], 'id' => 'captcha:' . $id]) . ($text ? ' ' . HTML::label($text, ['for' => 'captcha:' . $id]) : "");
+return Form::input('captcha', 'checkbox', $hash, null, ['class[]' => ['captcha', 'captcha-toggle'], 'id' => 'captcha:' . $id]) . ($text ? ' ' . HTML::label($text, ['for' => 'captcha:' . $id]) : "");
