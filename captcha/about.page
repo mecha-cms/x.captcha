@@ -4,6 +4,7 @@ description: Form protection using captcha.
 author: Taufik Nurrohman
 type: Markdown
 version: 1.4.0
+
 dependency:
   extension:
     - asset
