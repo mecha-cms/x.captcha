@@ -15,12 +15,12 @@ function fn_captcha_text_color($hex) {
 }
 
 Route::set('captcha.png', function() {
-    HTTP::mime('image/png')->header([
+    HTTP::type('image/png')->header([
         'Cache-Control' => 'no-store, no-cache, must-revalidate, max-age=0',
         'Cache-Control' => 'post-check=0, pre-check=0',
         'Pragma' => 'no-cache'
     ]);
-    $id = Request::get('id');
+    $id = HTTP::get('id');
     extract(To::anemon(Captcha::get($id . '_')));
     $text = Captcha::get($id);
     $image = imagecreatetruecolor($w, $h);
