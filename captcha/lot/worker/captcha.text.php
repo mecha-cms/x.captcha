@@ -7,7 +7,10 @@ list($id, $background, $color, $size, $width, $height, $text, $font) = array_rep
 $width *= $size;
 $height *= $size;
 
-Captcha::set($id, substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, $text));
+// $chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+$chars = '23456789abcdefghijklmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ'; // kill `0`, `1`, `I`, and `O` character as they may confuse the user
+
+Captcha::set($id, substr(str_shuffle($chars), 0, $text));
 Captcha::set($id . '_', json_encode([
     'b' => $background,
     'c' => $color,
