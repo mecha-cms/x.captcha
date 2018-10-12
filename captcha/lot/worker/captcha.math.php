@@ -15,7 +15,7 @@ if ($a - $b > 0) {
     $o = isset($text['+']) ? $text['+'] : '&#x002B;';
 }
 
-return HTML::span(__replace__($format, [
+return HTML::span(replace($format, [
     'a' => $a_text,
     'b' => $b_text,
     '?' => $o
