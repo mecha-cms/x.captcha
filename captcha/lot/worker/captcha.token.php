@@ -1,7 +1,7 @@
 <?php
 
 // `Captcha::token($id = null, $hash = null, $html = true)`
-list($id, $hash, $html) = array_replace([null, null, true], $lot);
+list($id, $hash, $html) = extend([null, null, true], $lot, false);
 
 if ($hash === null) {
     $hash = Guardian::hash();

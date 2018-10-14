@@ -27,8 +27,8 @@ class Captcha extends Genome {
         return true;
     }
 
-    public static function check($input, $id, $fail = false) {
-        return self::get($id, uniqid()) === $input ? $input : $fail;
+    public static function check($in, $id, $fail = false) {
+        return self::get($id, uniqid()) === $in ? $in : $fail;
     }
 
     public static function __callStatic($kin, $lot = []) {

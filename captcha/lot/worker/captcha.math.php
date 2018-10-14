@@ -1,7 +1,7 @@
 <?php
 
 // `Captcha::math($id = null, $min = 1, $max = 10, $text = [], $format = '%{a}% %{?}% %{b}%')`
-list($id, $min, $max, $text, $format) = array_replace([null, 1, 10, [], '%{a}% %{?}% %{b}%'], $lot);
+list($id, $min, $max, $text, $format) = extend([null, 1, 10, [], '%{a}% %{?}% %{b}%'], $lot, false);
 
 $a = mt_rand($min, $max);
 $b = mt_rand($min, $max);
@@ -15,7 +15,7 @@ if ($a - $b > 0) {
     $o = isset($text['+']) ? $text['+'] : '&#x002B;';
 }
 
-return HTML::span(replace($format, [
+return HTML::span(candy($format, [
     'a' => $a_text,
     'b' => $b_text,
     '?' => $o
