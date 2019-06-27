@@ -2,35 +2,23 @@
 
 class Captcha extends Genome {
 
-    const config = [
-        'session' => [
-            'captcha' => 'mecha.captcha'
-        ]
-    ];
-
-    public static $config = self::config;
-
-    public static function set($id, $value = null) {
-        Cookie::set(self::$config['session']['captcha'] . '.' . $id, $value, [
-            'expire' => 1 / 2.4,
-            'http_only' => true // will not be available in `document.cookie`
-        ]);
-        return true;
+    public static function get($id) {
+        return Session::get('captcha.' . $id);
     }
 
-    public static function get($id, $fail = null) {
-        return Cookie::get(self::$config['session']['captcha'] . '.' . $id, $fail);
+    public static function let($id = null) {
+        return Session::let('captcha' . ($id ? '.' . $id : ""));
     }
 
-    public static function reset($id = null) {
-        Cookie::reset(self::$config['session']['captcha'] . ($id ? '.' . $id : ""));
-        return true;
+    public static function set($id, $value) {
+        return Session::set('captcha.' . $id, $value);
     }
 
-    public static function check($in, $id, $fail = false) {
-        return self::get($id, uniqid()) === $in ? $in : $fail;
+    public static function check($value, $id) {
+        return $value && self::get($id) === $value ? $value : false;
     }
 
+    /*
     public static function __callStatic($kin, $lot = []) {
         if ($type = File::exist(__DIR__ . DS . '..' . DS . '..' . DS . 'lot' . DS . 'worker' . DS . 'captcha.' . $kin . '.php')) {
             extract(Lot::reset(['lot', 'kin', 'type'])->get(null, []));
@@ -38,5 +26,6 @@ class Captcha extends Genome {
         }
         return !defined('DEBUG') || !DEBUG ? null : parent::__callStatic($kin, $lot);
     }
+    */
 
 }
