@@ -1,7 +1,7 @@
 <?php
 
 // `Captcha::text($id = null, $background = false, $color = '000', $size = 16, $width = 6, $height = 2, $text = 7, $font = '0')`
-list($id, $background, $color, $size, $width, $height, $text, $font) = alter([null, false, '000', 16, 6, 2, 7, '0'], $lot, false);
+list($id, $background, $color, $size, $width, $height, $text, $font) = extend([null, false, '000', 16, 6, 2, 7, '0'], $lot, false);
 
 // `em` unit relative to `$size`
 $width *= $size;
